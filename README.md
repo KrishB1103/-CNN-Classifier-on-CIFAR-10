@@ -17,14 +17,16 @@ This repository contains a Convolutional Neural Network (CNN) built using PyTorc
 
 Input: 3 x 32 x 32
 ->
-Conv2D(32 filters, 3x3) → ReLU → MaxPool(2x2)
+Conv2D(32 filters, 3×3, padding=1) → ReLU → MaxPool(2×2)
 ->
-Conv2D(64 filters, 3x3) → ReLU → MaxPool(2x2)
+Conv2D(64 filters, 3×3, padding=1) → ReLU → MaxPool(2×2)
 ->
-Flatten
+Conv2D(128 filters, 3×3, padding=1) → ReLU → MaxPool(2×2)
 ->
-FC Layer (128) → ReLU
+Flatten (128 × 4 × 4 → 2048)
 ->
-FC Layer (64) → ReLU
+Fully Connected Layer (128 units) → ReLU
 ->
-FC Layer (10) → Softmax
+Fully Connected Layer (64 units) → ReLU
+->
+Fully Connected Layer (10 units) → Output logits (class scores for 10 classes)
